@@ -123,6 +123,54 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &34761501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 34761502}
+  - component: {fileID: 34761503}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &34761502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34761501}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1823624354}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &34761503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34761501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0903cb96ebc5a478541c97cf50d8c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 1243987134103888443, guid: 2e3d1ab623ffd2049874df46435650e2, type: 3}
+  _boundaries: {fileID: 1823624355}
+  _count: 10
+  _delay: 2
 --- !u!1 &230147387
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,7 +1524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 4
-  _boundaries: {x: 20, y: 0, z: 20}
+  _boundaries: {fileID: 1823624355}
 --- !u!114 &1794783064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1549,6 +1597,7 @@ Transform:
   - {fileID: 407839889}
   - {fileID: 1448421181}
   - {fileID: 230147388}
+  - {fileID: 34761502}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1823624355
@@ -1563,8 +1612,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 316d0288e64b0a740bffd3f9d6ca45cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vertical: 20
-  _horizontal: 20
+  _vertical: 19.5
+  _horizontal: 19.5
 --- !u!1 &2137905760
 GameObject:
   m_ObjectHideFlags: 0

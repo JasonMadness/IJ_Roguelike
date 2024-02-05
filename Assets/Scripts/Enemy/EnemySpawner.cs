@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] private Transform _player;
     [SerializeField] private GameObject _prefab;
     [SerializeField] private Boundaries _boundaries;
     [SerializeField] private int _count;
@@ -25,7 +26,8 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < _count; i++)
         {
             Vector3 spawnPosition = GetRandomSpawnPosition();
-            Instantiate(_prefab, spawnPosition, Quaternion.identity);
+            GameObject newEnemy = Instantiate(_prefab, spawnPosition, Quaternion.identity);
+            newEnemy.GetComponent<Enemy>().Initialize(_player);
             yield return delay;
         }
     }

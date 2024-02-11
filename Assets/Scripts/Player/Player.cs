@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public List<Enemy> _enemiesInRange;
+
+    public void OnFiringRangeEnter(Enemy enemy)
     {
-        
+        _enemiesInRange.Add(enemy);
+        Debug.Log($"Enemy: {enemy.gameObject.transform.position} +++ENTER+++ range");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnFiringRangeExit(Enemy enemy)
     {
-        
+        _enemiesInRange.Remove(enemy);
+        Debug.Log($"Enemy: {enemy.gameObject.transform.position} ---LEFT--- range");
     }
 }

@@ -1,22 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float _speed;
+    [SerializeField] private float _damage;
 
-    private Vector3 _currentPosition;
-    private Vector3 _targetPosition;
+    private float _floorOffset = 1.0f;
 
-    public void Fire(Vector3 from, Vector3 target)
+    public void Fire(Vector3 target)
     {
-        _currentPosition = from;
-        _targetPosition = target;
+        transform.LookAt(target);
     }
 
-    private void Fly()
+    private void OnTriggerEnter(Collider other)
     {
-        Vector3.MoveTowards(_currentPosition, _targetPosition, _speed * Time.deltaTime);
+        if (other.TryGetComponent(out Enemy enemy))
+        {
+            enemy.TakeDamage(_damage);
+            Destroy(gameObject);
+        } 
+        
+        if (other.gameObject.TryGetComponent(typeof(Wall), out _))
+        {
+            Destroy(gameObject);
+        }  
+    }
+
+    private void Update()
+    {
+        transform.Translate(Vector3.forward * _speed * Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, _floorOffset, transform.position.z);
     }
 }

@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FiringRange : MonoBehaviour
@@ -18,10 +16,9 @@ public class FiringRange : MonoBehaviour
         SetLocalScale();
     }
 
-    public void ChangeDistance(float distance)
+    public void OnEnemyKilled(Enemy enemy)
     {
-        _distance = distance;
-        SetLocalScale();
+        EnemyLeftFiringRange?.Invoke(enemy);
     }
 
     private void SetLocalScale()
@@ -36,6 +33,7 @@ public class FiringRange : MonoBehaviour
         if (other.gameObject.TryGetComponent(out Enemy enemy))
         {
             EnemyEnterFiringRange?.Invoke(enemy);
+            enemy.Killed += OnEnemyKilled;
         }
     }
 
@@ -44,6 +42,7 @@ public class FiringRange : MonoBehaviour
         if (other.gameObject.TryGetComponent(out Enemy enemy))
         {
             EnemyLeftFiringRange?.Invoke(enemy);
+            enemy.Killed -= OnEnemyKilled;
         }
     }
 

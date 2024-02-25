@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -12,12 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int _count;
     [SerializeField] private float _delay;
 
-    private Vector3 _borders;
-
-    private void Start()
-    {
-        _borders = _boundaries.Get();
-    }
+    private float _floorOffset;
 
     private IEnumerator Spawn()
     {
@@ -36,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
     {
         Vector3 randomPosition = new Vector3();
         Vector3 boundaries = _boundaries.Get();
-        float randomSide = Random.Range(1, 100);
+        float randomSide = Random.Range(0, 100);
 
         if (randomSide < 25)
         {
@@ -59,15 +51,13 @@ public class EnemySpawner : MonoBehaviour
             randomPosition.x = Random.Range(-boundaries.x, boundaries.x);
         }
 
-        //костыль
-        randomPosition.y = 1f;
-
+        randomPosition.y = _floorOffset;
         return randomPosition;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             StartCoroutine(Spawn());
         }

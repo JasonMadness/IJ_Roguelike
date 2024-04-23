@@ -57,7 +57,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (UnityEngine.Input.GetKeyDown(KeyCode.T))
         {
             StartCoroutine(Spawn());
         }

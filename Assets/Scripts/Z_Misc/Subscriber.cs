@@ -6,17 +6,10 @@ using UnityEngine;
 public class Subscriber : MonoBehaviour
 {
     [SerializeField] private Player _player;
-    [SerializeField] private FiringRange _firingRange;
-    
+    [SerializeField] private RangeOfShooting _rangeOfShooting;
+
     private void OnEnable()
     {
-        _firingRange.EnemyEnterFiringRange += _player.OnFiringRangeEnter;
-        _firingRange.EnemyLeftFiringRange += _player.OnFiringRangeExit;
-    }
-
-    private void OnDisable()
-    {
-        _firingRange.EnemyEnterFiringRange -= _player.OnFiringRangeEnter;
-        _firingRange.EnemyLeftFiringRange -= _player.OnFiringRangeExit;
+        _rangeOfShooting.NearestEnemyFound += _player.OnNearestEnemyFound;
     }
 }

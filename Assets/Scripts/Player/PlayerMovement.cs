@@ -8,8 +8,12 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float _speed;
     [SerializeField] private Boundaries _boundaries;
+    [SerializeField] private PlayerAnimation _playerAnimation;
 
     private Vector3 _borders;
+    private Vector3 _direction;
+
+    public Vector3 Direction => _direction;
 
     private void Start()
     {
@@ -23,10 +27,19 @@ public class PlayerMovement : MonoBehaviour
     
     private void Move()
     {
-        float horizontalDirection = Input.GetAxis(HORIZONTAL);
-        float verticalDirection = Input.GetAxis(VERTICAL);
-        Vector3 direction = new Vector3(horizontalDirection, 0.0f, verticalDirection);
-        transform.position += direction * _speed * Time.deltaTime;
+        float horizontalDirection = UnityEngine.Input.GetAxisRaw(HORIZONTAL);
+        float verticalDirection = UnityEngine.Input.GetAxisRaw(VERTICAL);
+        _direction = new Vector3(horizontalDirection, 0.0f, verticalDirection);
+        transform.position += _direction * _speed * Time.deltaTime;
+
+        /*if (_direction != Vector3.zero)
+        {
+            _playerAnimation.Run();
+        }
+        else
+        {
+            _playerAnimation.Stop();
+        }*/
     }
 
     private void ClampPosition()

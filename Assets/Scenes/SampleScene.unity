@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1521,7 +1521,6 @@ GameObject:
   - component: {fileID: 966152782}
   - component: {fileID: 966152781}
   - component: {fileID: 966152780}
-  - component: {fileID: 966152783}
   m_Layer: 6
   m_Name: FiringRange
   m_TagString: Untagged
@@ -1616,22 +1615,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966152778}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &966152783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966152778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d50ea2167255e734398f00d2b1883e0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _distance: 8
-  _view: {fileID: 1923446764}
-  _collider: {fileID: 966152780}
-  _coefficient: 0.016
 --- !u!1 &1049999825
 GameObject:
   m_ObjectHideFlags: 0
@@ -2259,7 +2242,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1794783058}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 712c2111add9ad643ae49caa6927800c, type: 3}
+  m_Script: {fileID: 11500000, guid: f2d4a0c1499ae3e45b83347600510728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 352620170}

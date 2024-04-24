@@ -8,12 +8,12 @@ public class RangeOfShooting : MonoBehaviour
     private List<Enemy> _enemiesInRange = new List<Enemy>();
     private Enemy _nearestEnemy;
 
-    public event Action<Enemy> NearestEnemyFound; 
+    public event Action<Enemy> NearestEnemyFound;
 
     private void FindNearestEnemy()
     {
         _nearestEnemy = _enemiesInRange.FirstOrDefault();
-        
+
         if (_nearestEnemy != null)
         {
             float shortestRange = Vector3.Distance(_nearestEnemy.transform.position, transform.position);
@@ -38,6 +38,7 @@ public class RangeOfShooting : MonoBehaviour
         if (other.TryGetComponent(out Enemy enemy))
         {
             _enemiesInRange.Add(enemy);
+            enemy.Killed += OnEnemyKilled;
         }
     }
 
@@ -49,11 +50,19 @@ public class RangeOfShooting : MonoBehaviour
         }
     }
 
+    private void OnEnemyKilled(Enemy enemy)
+    {
+        enemy.Killed -= OnEnemyKilled;
+        _enemiesInRange.Remove(enemy);
+    }
+
     private void Update()
     {
         if (_enemiesInRange.Count > 0)
         {
             FindNearestEnemy();
         }
+
+        Debug.Log("Количество врагов в радиусе: " + _enemiesInRange.Count);
     }
 }

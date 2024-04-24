@@ -20,7 +20,6 @@ public class Player : MonoBehaviour
     {
         _nearestEnemy = enemy;
         _weapon.SetTarget(_nearestEnemy);
-        _weapon.TryShoot();
         // сделать вращение к врагу, стрельбу во врага и придумать вращение в апдейте
     }
 

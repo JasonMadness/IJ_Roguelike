@@ -62,7 +62,5 @@ public class RangeOfShooting : MonoBehaviour
         {
             FindNearestEnemy();
         }
-
-        Debug.Log("Количество врагов в радиусе: " + _enemiesInRange.Count);
     }
 }

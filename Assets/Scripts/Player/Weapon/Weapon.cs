@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -19,13 +16,6 @@ public class Weapon : MonoBehaviour
     public void SetTarget(Enemy enemy)
     {
         _target = enemy;
-        
-        //Debug.Log("Целью оружия назначен: " + enemy.gameObject.name + " по координатам: " + enemy.transform.position);
-    }
-
-    public void ClearTarget()
-    {
-        _target = null;
     }
 
     private void TryShoot()
@@ -43,11 +33,5 @@ public class Weapon : MonoBehaviour
     {
         _weaponCooldown -= Time.deltaTime;
         TryShoot();
-        
-        /*if (_target == null)
-            Debug.Log("На данный момент у оружия нет цели");
-        else
-            Debug.Log("Целью оружия назначен: " + _target.gameObject.name + " по координатам: " + _target.transform.position);
-            */
     }
 }

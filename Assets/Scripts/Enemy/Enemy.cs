@@ -20,6 +20,11 @@ public class Enemy : MonoBehaviour
         _target = player;
     }
 
+    public bool IsMoving()
+    {
+        return _agent.velocity != Vector3.zero;
+    }
+
     public void TakeDamage(float damage)
     {
         if (damage > _health)
